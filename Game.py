@@ -12,7 +12,17 @@ class Game:
         print("game init")
         self.board = Board()
         self.players = [Player("o", self.board), Player("x", self.board)]
-        self.first_player = 0
+        self.first_player = self.who_is_first()
+
+    def who_is_first(self):
+        res = None
+        while res is None:
+            inp = input("Kto zaczyna pierwszy [x] czy [o]?: ")
+            if inp == 'x':
+                res = 1
+            elif inp == 'o':
+                res = 0
+        return res
 
     def run(self):
         while True:
